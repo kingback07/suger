@@ -1,32 +1,25 @@
 package org.kingback.suger.explorer;
 
+import org.kingback.suger.explorer.dynamicProxy.ProxyImpl;
+import org.kingback.suger.explorer.interview.Testby2;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 @SpringBootApplication
 public class ExplorerApplication {
 
     public static void main(String[] args) {
-        //SpringApplication.run(ExplorerApplication.class, args);
-        String testStr="I Wanna to Learn More Tech";
-        String res=testStr.substring(2,7);
-        System.out.println(res);
+        boolean resA=Testby2.isTrue(8);
+        boolean resB=Testby2.isTrue(1024);
+        try {
+            int numA=Testby2.quaNum4two(8);
+            int numB=Testby2.quaNum4two(1024);
+            System.out.println("numA:"+numA+"&numB:"+numB);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("resA:"+resA+"&ResB:"+resB);
 
-        Map<String,String> resMap=new HashMap<String,String>();
-
-        int n=Integer.MAX_VALUE;
-        int x=n>>>4;
-
-        System.out.println(n+":"+Integer.toBinaryString(n));
-
-
-        char[] strArray=testStr.toCharArray();
-        List<char[]> charlist= Arrays.asList(strArray);
-
-        //ConcurrentHashMap
+        //动态代理测试
+        ProxyImpl.doProxyFunction(4);
     }
 }
