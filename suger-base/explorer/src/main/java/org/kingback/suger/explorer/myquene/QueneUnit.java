@@ -1,5 +1,6 @@
 package org.kingback.suger.explorer.myquene;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,7 +10,7 @@ import java.util.List;
  */
 public class QueneUnit {
 
-    private List<Object> _ds;
+    private List<Object> _ds=new ArrayList<Object>();
 
     private int maxCount = 20;
 
@@ -25,6 +26,8 @@ public class QueneUnit {
             }
             Object res=_ds.get(curCount);
             curCount--;
+            writeKey.notify();
+
             return res;
         } catch (Exception ex) {
             return null;
