@@ -1,5 +1,6 @@
 package org.kingback.suger.explorer;
 
+import org.kingback.suger.explorer.dynamicProxy.ProxyImpl;
 import org.kingback.suger.explorer.interview.Testby2;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -17,5 +18,8 @@ public class ExplorerApplication {
             e.printStackTrace();
         }
         System.out.println("resA:"+resA+"&ResB:"+resB);
+
+        //动态代理测试
+        ProxyImpl.doProxyFunction(4);
     }
 }
