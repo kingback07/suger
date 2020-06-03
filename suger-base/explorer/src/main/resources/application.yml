@@ -1,0 +1,4 @@
+metrix:
+  sql:
+      A: Select * from TestTableA where id = {{id}}
+      B: Select * from TestTableB where id ={{id}}

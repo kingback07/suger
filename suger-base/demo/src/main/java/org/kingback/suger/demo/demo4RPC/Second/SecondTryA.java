@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 public class SecondTryA implements IsayHi {
     @Override
     public void sayHi(String name) {
-        System.out.println("Hi "+name+",Welcome to Growth,Let's make some diffrent!");
+        System.out.println("Hi " + name + ",Welcome to Growth,Let's make some diffrent!");
     }
 }

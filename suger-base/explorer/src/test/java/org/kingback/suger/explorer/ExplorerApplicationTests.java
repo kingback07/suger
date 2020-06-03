@@ -16,21 +16,21 @@ public class ExplorerApplicationTests {
     }
 
     @Test
-    public void testblockQuene(){
-        QueneUnit quene=new QueneUnit();
+    public void testblockQuene() {
+        QueneUnit quene = new QueneUnit();
         quene.getObj();
-        String s="a";
+        String s = "a";
         quene.setObj(s);
-        String a=(String)quene.getObj();
-        Assert.assertEquals(a,"a");
+        String a = (String) quene.getObj();
+        Assert.assertEquals(a, "a");
     }
 
     @Test
-    public void testString(){
-        String s1="this is String";
-        StringBuilder sb=new StringBuilder(s1);
+    public void testString() {
+        String s1 = "this is String";
+        StringBuilder sb = new StringBuilder(s1);
         sb.append(" Yea");
-        System.out.println("String Test:"+(s1));
+        System.out.println("String Test:" + (s1));
     }
 
 }

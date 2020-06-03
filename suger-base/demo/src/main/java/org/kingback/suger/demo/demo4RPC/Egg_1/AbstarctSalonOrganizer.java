@@ -14,7 +14,7 @@ public abstract class AbstarctSalonOrganizer {
     public abstract void notifyEveryOne();
 
     //组织沙龙
-    public void organizeTheSalon(){
+    public void organizeTheSalon() {
         //Todo:排期，一系列准备工作，准备发言……
 
         notifyEveryOne();

@@ -13,17 +13,16 @@ public class DemoApplication {
 
     public static void main(String[] args) {
 
-        final String NEW_PERSON="polo";
+        final String NEW_PERSON = "polo";
         //1st try,传统的对象使用
-        GrowtherA growther=new GrowtherA();
+        GrowtherA growther = new GrowtherA();
         growther.welcome(NEW_PERSON);
-
 
 
         //2nd try,开放-封闭原则
         //获取spring容器，从容器中获取Growther实例
-        ConfigurableApplicationContext context= SpringApplication.run(DemoApplication.class, args);
-        GrowtherB growtherB=context.getBean(GrowtherB.class);
+        ConfigurableApplicationContext context = SpringApplication.run(DemoApplication.class, args);
+        GrowtherB growtherB = context.getBean(GrowtherB.class);
         growtherB.welcome(NEW_PERSON);
 
 //        Thread t1=new Thread(new Runnable() {
@@ -40,14 +39,14 @@ public class DemoApplication {
 
         //3rd 彩蛋：观察者模式体现 ---组织一场沙龙，发起所有人讨论
         //1.确定一个组织人
-        Person4Organizer organizer=new Person4Organizer();
+        Person4Organizer organizer = new Person4Organizer();
         organizer.register(organizer);
         //2.初始化N名参会者
-        Person4Attender attenderA=new Person4Attender("关羽",organizer);
-        Person4Attender attenderB=new Person4Attender("张飞",organizer);
-        Person4Attender attenderC=new Person4Attender("赵云",organizer);
-        Person4Attender attenderD=new Person4Attender("马超",organizer);
-        Person4Attender attenderE=new Person4Attender("黄忠",organizer);
+        Person4Attender attenderA = new Person4Attender("关羽", organizer);
+        Person4Attender attenderB = new Person4Attender("张飞", organizer);
+        Person4Attender attenderC = new Person4Attender("赵云", organizer);
+        Person4Attender attenderD = new Person4Attender("马超", organizer);
+        Person4Attender attenderE = new Person4Attender("黄忠", organizer);
 
         attenderA.setMyOpinion("孙权不足为惧！");
         attenderB.setMyOpinion("二哥说的对呀！");

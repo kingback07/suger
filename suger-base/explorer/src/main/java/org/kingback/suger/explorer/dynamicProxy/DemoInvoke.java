@@ -12,16 +12,16 @@ public class DemoInvoke implements InvocationHandler {
 
     private Object target;
 
-    public DemoInvoke(Object target){
-        this.target=target;
+    public DemoInvoke(Object target) {
+        this.target = target;
     }
 
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
-        System.out.println("Start the Proxy Function:"+args[0].toString());
-        Object res=method.invoke(target,args);
-        System.out.println("End the Proxy Function:"+args[0].toString());
+        System.out.println("Start the Proxy Function:" + args[0].toString());
+        Object res = method.invoke(target, args);
+        System.out.println("End the Proxy Function:" + args[0].toString());
         return res;
     }
 }

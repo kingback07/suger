@@ -10,21 +10,21 @@ import java.util.List;
  */
 public class QueneUnit {
 
-    private List<Object> _ds=new ArrayList<Object>();
+    private List<Object> _ds = new ArrayList<Object>();
 
     private int maxCount = 20;
 
     private volatile int curCount = 0;
 
-    private final Object readKey=new Object();
-    private final Object writeKey=new Object();
+    private final Object readKey = new Object();
+    private final Object writeKey = new Object();
 
     public Object getObj() {
         try {
             if (curCount == 0) {
                 readKey.wait();
             }
-            Object res=_ds.get(curCount);
+            Object res = _ds.get(curCount);
             curCount--;
             writeKey.notify();
 
@@ -36,16 +36,16 @@ public class QueneUnit {
     }
 
     public void setObj(Object val) {
-        try{
-            if(curCount>=maxCount){
+        try {
+            if (curCount >= maxCount) {
                 writeKey.wait();
             }
             _ds.add(val);
             curCount++;
             readKey.notify();
-        }catch (Exception ex){
+        } catch (Exception ex) {
 
-        }finally {
+        } finally {
         }
     }
 

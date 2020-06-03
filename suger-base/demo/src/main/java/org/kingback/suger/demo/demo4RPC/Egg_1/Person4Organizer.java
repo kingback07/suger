@@ -9,8 +9,8 @@ import java.util.ArrayList;
 public class Person4Organizer extends AbstarctSalonOrganizer implements IGrowther {
     @Override
     public void register(IGrowther growther) {
-        if(friends==null){
-            friends=new ArrayList<>();
+        if (friends == null) {
+            friends = new ArrayList<>();
         }
         friends.add(growther);
         //Todo:对于报名者的个性化处理
@@ -19,8 +19,8 @@ public class Person4Organizer extends AbstarctSalonOrganizer implements IGrowthe
     @Override
     public void notifyEveryOne() {
         //Todo:个性化处理，最后通知大家畅所欲言
-        if(friends!=null&&friends.size()>=0){
-            friends.forEach(t->t.sayMyOpinion());
+        if (friends != null && friends.size() >= 0) {
+            friends.forEach(t -> t.sayMyOpinion());
         }
     }
 

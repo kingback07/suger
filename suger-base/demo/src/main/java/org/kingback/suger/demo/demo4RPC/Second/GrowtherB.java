@@ -7,10 +7,10 @@ import javax.annotation.Resource;
 @Component
 public class GrowtherB {
 
-    @Resource(name="secA")
+    @Resource(name = "secA")
     private IsayHi sayHi;
 
-    public void welcome(String name){
+    public void welcome(String name) {
         sayHi.sayHi(name);
     }
 }

@@ -7,10 +7,10 @@ package org.kingback.suger.explorer.dynamicProxy;
 public class ProxyDemo implements IProxyFunction {
 
     @Override
-    public void proxyFunc(Integer i){
-        if(i>=10){
+    public void proxyFunc(Integer i) {
+        if (i >= 10) {
             System.out.println("I > 10");
-        }else{
+        } else {
             System.out.println("I < 10");
         }
     }
