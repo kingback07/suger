@@ -32,4 +32,11 @@ public class LearningApplicationTests {
         printArray(array);
     }
 
+    @Test
+    public void arrayOrderBySelectTest(){
+        int[] array=new int[]{10,5,9,6,2,3,8,7,1,4};
+        ArrayOrderSimple.orderBySelected(array);
+        printArray(array);
+    }
+
 }
