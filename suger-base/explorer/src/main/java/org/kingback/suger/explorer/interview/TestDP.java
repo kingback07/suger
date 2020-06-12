@@ -48,7 +48,6 @@ public class TestDP {
             }
             if (sum > max) {
                 max = sum;
-
                 //置换Map中标量为false的数值进入到数组中
                 for (Integer index : tempMap.keySet()) {
                     tempMap.put(index, true);

@@ -46,17 +46,16 @@ public class ArrayOrderSimple {
         for (int i = 0; i < length; i++) {
             //i-1标示当前顺序区和非顺序区分界线,
             int curVal = srcArr[i];
-            int j = i - 1;
-            for (; j >= 0; j--) {
+            for (int j = i - 1; j >= 0; j--) {
                 //对于非顺序区的第一位元素，需要与顺序区的最后一位数向前依次比较，直到此元素比顺序区中某一个元素大为止
                 //j 标识为最终比较结果里匹配到的顺序区中应该插入的下标
                 if (srcArr[j] > curVal) {
                     srcArr[j + 1] = srcArr[j];//j中所有剩下元素后移一步
+                    srcArr[j]=curVal;
                 } else {
                     break;
                 }
             }
-            srcArr[j + 1] = curVal;
         }
     }
 
