@@ -50,14 +50,8 @@ public class LearningApplicationTests {
 
     @Test
     public void arrayOrderBySelectTest() {
-//        int[] array = new int[]{10, 5, 9, 6, 2, 3, 8, 7, 1, 4};
-//        ArrayOrderSimple.orderBySelected(array);
-//        printArray(array, 100);
-        int[] array = randomArray(100000);
-        long sta = System.currentTimeMillis();
+        int[] array = new int[]{10, 5, 9, 6, 2, 3, 8, 7, 1, 4};
         ArrayOrderSimple.orderBySelected(array);
-        long end = System.currentTimeMillis();
-        System.out.println("选择排序，耗时:" + (end - sta) + "ms");
         printArray(array, 100);
     }
 
@@ -69,6 +63,16 @@ public class LearningApplicationTests {
         ArrayOrderQuick.orderByMergeSort(array);
         long end = System.currentTimeMillis();
         System.out.println("归并排序，耗时:" + (end - sta) + "ms");
+        printArray(array, 100);
+    }
+
+    @Test
+    public void arrayOrderByQuick() {
+        int[] array = randomArray(100000);
+        long sta = System.currentTimeMillis();
+        ArrayOrderQuick.orderByQuickSort(array);
+        long end = System.currentTimeMillis();
+        System.out.println("快速排序，耗时:" + (end - sta) + "ms");
         printArray(array, 100);
     }
 
@@ -103,6 +107,13 @@ public class LearningApplicationTests {
         long end3 = System.currentTimeMillis();
         printArray(array3, 100);
         System.out.println("归并排序，耗时:" + (end3 - sta3) + "ms");
+
+        int[] array5 = randomArray(100000);
+        long sta5 = System.currentTimeMillis();
+        ArrayOrderQuick.orderByQuickSort(array5);
+        long end5 = System.currentTimeMillis();
+        printArray(array5, 100);
+        System.out.println("快速排序，耗时:" + (end5 - sta5) + "ms");
 
         ArrayList<Integer> arrayList = new ArrayList<>();
         int[] array4 = randomArray(100000);
