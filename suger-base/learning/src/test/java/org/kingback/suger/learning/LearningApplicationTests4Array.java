@@ -10,7 +10,7 @@ import java.util.Collections;
 import java.util.Random;
 
 @SpringBootTest
-public class LearningApplicationTests {
+public class LearningApplicationTests4Array {
 
     private void printArray(int[] array, int length) {
         StringBuilder sb = new StringBuilder();
@@ -76,39 +76,45 @@ public class LearningApplicationTests {
         printArray(array, 100);
     }
 
+    /**
+     * 根据测试结果总结：
+     * 简单排序算法中，效率最差的为冒泡排序，随着数据量提升，插入排序效率会逐渐优于选择排序
+     * 另外简单排序和快速排序在数据量1000以下不会产生差别，在1000以上开始显示差异并且会迅速扩大，数据量高于10000时快排可以保持ms级别效率
+     */
     @Test
     public void compare() {
-        System.out.println("排序算法比较,10w量级别，100w普通排序耗时已经超过10s，没有意义");
+        int n=10000;
+        System.out.println("排序算法比较,"+n+"量级别，100w普通排序耗时已经超过10s，没有意义");
 
-        int[] array0 = randomArray(100000);
+        int[] array0 = randomArray(n);
         long sta0 = System.currentTimeMillis();
         ArrayOrderSimple.orderByBubble(array0);
         long end0 = System.currentTimeMillis();
         printArray(array0, 100);
         System.out.println("冒泡排序，耗时:" + (end0 - sta0) + "ms");
 
-        int[] array1 = randomArray(100000);
+        int[] array1 = randomArray(n);
         long sta1 = System.currentTimeMillis();
         ArrayOrderSimple.orderByInsert(array1);
         long end1 = System.currentTimeMillis();
         printArray(array1, 100);
         System.out.println("插入排序，耗时:" + (end1 - sta1) + "ms");
 
-        int[] array2 = randomArray(100000);
+        int[] array2 = randomArray(n);
         long sta2 = System.currentTimeMillis();
         ArrayOrderSimple.orderBySelected(array2);
         long end2 = System.currentTimeMillis();
         printArray(array2, 100);
         System.out.println("选择排序，耗时:" + (end2 - sta2) + "ms");
 
-        int[] array3 = randomArray(100000);
+        int[] array3 = randomArray(n);
         long sta3 = System.currentTimeMillis();
         ArrayOrderQuick.orderByMergeSort(array3);
         long end3 = System.currentTimeMillis();
         printArray(array3, 100);
         System.out.println("归并排序，耗时:" + (end3 - sta3) + "ms");
 
-        int[] array5 = randomArray(100000);
+        int[] array5 = randomArray(n);
         long sta5 = System.currentTimeMillis();
         ArrayOrderQuick.orderByQuickSort(array5);
         long end5 = System.currentTimeMillis();
@@ -116,14 +122,15 @@ public class LearningApplicationTests {
         System.out.println("快速排序，耗时:" + (end5 - sta5) + "ms");
 
         ArrayList<Integer> arrayList = new ArrayList<>();
-        int[] array4 = randomArray(100000);
-        for (int i = 0; i < 100000; i++) {
+        int[] array4 = randomArray(n);
+        for (int i = 0; i < n; i++) {
             arrayList.add(array4[i]);
         }
         long sta4 = System.currentTimeMillis();
         Collections.sort(arrayList);
         long end4 = System.currentTimeMillis();
         System.out.println("Collection自带排序，耗时:" + (end4 - sta4) + "ms");
+
 
     }
 
