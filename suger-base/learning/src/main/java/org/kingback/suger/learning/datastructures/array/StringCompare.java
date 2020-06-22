@@ -101,6 +101,7 @@ public class StringCompare {
                 return preRes.substring(0, c != sufRes.charAt(i) ? i : i + 1);
             }
         }
+
         return preRes;
     }
 
