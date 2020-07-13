@@ -1,5 +1,10 @@
 package org.kingback.suger.learning.tree;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Stack;
+import java.util.Vector;
+
 /**
  * 树的搜索方式
  * 递归查找
@@ -8,41 +13,59 @@ package org.kingback.suger.learning.tree;
  */
 public class SearchType<K> {
 
-    TreeNode root;
 
     //定义一个树节点
-    class TreeNode {
-        K value;
-        TreeNode left;
-        TreeNode right;
+    class Node {
+        public int val;
+        public List<Node> children;
 
-        void appendLeft(TreeNode leftNode) {
-            left = leftNode;
+        public Node() {
         }
 
-        void appendRigth(TreeNode rightNode) {
-            right = rightNode;
+        public Node(int _val) {
+            val = _val;
         }
 
-        TreeNode(K val) {
-            value = val;
+        public Node(int _val, List<Node> _children) {
+            val = _val;
+            children = _children;
         }
+    }
+
+
+    /**
+     * https://leetcode-cn.com/problems/n-ary-tree-preorder-traversal/
+     * 对N叉树手动使用Stack遍历
+     * @param root
+     * @return
+     */
+    public List<Integer> preorder(Node root) {
+        /**
+         * 思路：手动模拟压栈操作，使用stack，从root开始先压入栈
+         * root 出栈，同时把root的子节点倒序入栈（保证出栈顺序为从左到右），出栈值写入List
+         * 整个迭代过程属于BFS
+         */
+        if (root == null) return null;
+        List<Integer> list=new ArrayList<>();
+        Stack<Node> stack = new Stack<Node>();
+        stack.push(root);
+        while (!stack.empty()) {
+            Node cur = stack.pop();
+            list.add(cur.val);
+            if (cur.children != null) {
+                for (int i=cur.children.size()-1;i>=0;i--) {
+                    stack.push(cur.children.get(i));
+                }
+            }
+        }
+        return list;
     }
 
     //通过数据生成普通二叉树
     void gentreeFromArray(K[] arr) {
-        root = new TreeNode(arr[0]);
-        for(int i=1;i<arr.length;i++){
-            K val=arr[i];
-            TreeNode node=new TreeNode(val);
-        }
+
     }
 
-    private void addNode(TreeNode cur,TreeNode pre){
-        if(cur.left==null&&cur.right==null){
-           
-        }
-    }
 
     public void doBFS(K[] arr) {
 

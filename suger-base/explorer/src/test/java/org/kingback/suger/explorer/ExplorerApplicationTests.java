@@ -1,9 +1,7 @@
 package org.kingback.suger.explorer;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.kingback.suger.explorer.myquene.QueneUnit;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
@@ -13,16 +11,6 @@ public class ExplorerApplicationTests {
 
     @Test
     public void contextLoads() {
-    }
-
-    @Test
-    public void testblockQuene() {
-        QueneUnit quene = new QueneUnit();
-        quene.getObj();
-        String s = "a";
-        quene.setObj(s);
-        String a = (String) quene.getObj();
-        Assert.assertEquals(a, "a");
     }
 
     @Test

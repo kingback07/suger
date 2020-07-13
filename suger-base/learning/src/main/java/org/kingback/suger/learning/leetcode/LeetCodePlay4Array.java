@@ -43,6 +43,8 @@ public class LeetCodePlay4Array {
          * 思路：利用双指针和数据排序特性，如果num[i]!=num[j]
          * 则执行替换操作同时j向后移动，i遍历完成后，j的索引即指向数据长度
          */
+
+
         if (nums.length <= 0) return 0;
         int i = 0;
         int j = 0;

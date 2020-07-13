@@ -5,6 +5,11 @@ import org.junit.Test;
 import org.kingback.suger.learning.datastructures.array.StringCompare;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.Deque;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.Stack;
+
 @SpringBootTest
 public class Test4String {
 
@@ -26,6 +31,11 @@ public class Test4String {
         String[] strs=genarateData();
         String res=StringCompare.longestCommonPrefix(strs);
         Assert.assertEquals("fla",res);
+
+        HashMap hm;
+        Hashtable ht;
+        Deque dq;
+        Stack st;
     }
 
 
