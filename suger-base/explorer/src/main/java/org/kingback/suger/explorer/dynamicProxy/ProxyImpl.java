@@ -19,10 +19,12 @@ public class ProxyImpl {
          * 此处第二个参数为什么不用接口类型而是需要实体类类型？
          * getInterfaces()方法标识获取此对象所有实现的接口类型
          */
-        IProxyFunction proxyIns = (IProxyFunction) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), proxyFunction.getClass().getInterfaces(), invoke);
+        IProxyFunction proxyIns = (IProxyFunction) Proxy.newProxyInstance(Thread.currentThread().getContextClassLoader(), new Class[]{IProxyFunction.class}, invoke);
         //调用接口方法，实际上是使用动态生成的代理类执行此方法
         proxyIns.proxyFunc(x);
+    }
 
-
+    public static void main(String[] args){
+        ProxyImpl.doProxyFunction(3);
     }
 }
