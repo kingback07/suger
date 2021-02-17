@@ -2,12 +2,14 @@ package org.kingback.suger.explorer;
 
 import org.kingback.suger.explorer.dynamicProxy.ProxyImpl;
 import org.kingback.suger.explorer.interview.Testby2;
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ExplorerApplication {
 
     public static void main(String[] args) {
+//        BeanDefinition
         boolean resA = Testby2.isTrue(8);
         boolean resB = Testby2.isTrue(1024);
         try {
