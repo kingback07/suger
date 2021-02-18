@@ -28,7 +28,7 @@ public class ProxyFactory {
             String servieName = interfaceType.getName();
             List<URL4Rpc> availableUrls = RemoteRegister.get(servieName);
             //对于多个可用远程服务，使用LoadBalance 方法获取一个具体的URL
-            URL4Rpc chooseUrl = LoadBalance.choose4Random(availableUrls);
+            URL4Rpc chooseUrl = LoadBalance.selectByRandom(availableUrls);
             return client4Http.send(chooseUrl, invocation);
         });
     }

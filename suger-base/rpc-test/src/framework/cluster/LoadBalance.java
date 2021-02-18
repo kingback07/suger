@@ -13,7 +13,7 @@ import java.util.Random;
  */
 public class LoadBalance {
 
-    public static URL4Rpc choose4Random(List<URL4Rpc> urlList) {
+    public static URL4Rpc selectByRandom(List<URL4Rpc> urlList) {
         Random random = new Random();
         int size = urlList.size();
         int randomIndex = random.nextInt(size);

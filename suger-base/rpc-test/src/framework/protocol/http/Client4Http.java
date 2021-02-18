@@ -38,7 +38,6 @@ public class Client4Http {
     public String send(URL4Rpc url4Rpc, Invocation invocation) {
         try {
             MediaType JSON = MediaType.parse("application/json;charset=utf-8");
-            final OkHttpClient sinletonClient = clientHandler.sinletonClient;
             String jsonStr = objectMapper.writeValueAsString(invocation);
             RequestBody requestBody = RequestBody.create(JSON, jsonStr);
             Request request = new Request.Builder()
