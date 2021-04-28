@@ -5,9 +5,12 @@ import framework.common.URL4Rpc;
 import framework.protocol.Invocation;
 import framework.protocol.http.Client4Http;
 import framework.register.RemoteRegister;
+import sun.nio.ch.ThreadPool;
 
 import java.lang.reflect.Proxy;
 import java.util.List;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 客户端代理类
@@ -17,6 +20,8 @@ import java.util.List;
  * Created on 2021-02-17
  */
 public class ProxyFactory {
+
+    private ReentrantLock lock;
 
     //创建指定服务方法的实际代理类，此处简单使用java 自带的动态代理实现
     public static <T> T getInvoker(final Class interfaceType) {

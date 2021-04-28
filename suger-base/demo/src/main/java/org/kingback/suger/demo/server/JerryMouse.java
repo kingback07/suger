@@ -17,13 +17,15 @@ public class JerryMouse {
         SocketAddress address = new InetSocketAddress(7799);
         serverSocket.bind(address);
         while (true) {
+            //第一次阻塞，只有当有链接创建时才会继续
             Socket inSocket = serverSocket.accept();
             System.out.println("===get receive port:"+inSocket.getInetAddress()+":"+inSocket.getPort()+"===");
             Thread reciveThread = new Thread(() -> {
                 while (true) {
                     InputStream inputStream = null;
                     try {
-//                        inSocket.get
+
+                        //第二次阻塞，内核数据准备好后才会返回
                         inputStream = inSocket.getInputStream();
 
                         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));

@@ -37,20 +37,51 @@ public class TestDP {
      * @return
      */
     public static int maxSubSumByDB(int[] array) {
-        if (array.length <= 1) {
-            return array.length > 0 ? array[1] : 0;
-        }
         /**
          * 思路：建立dp，假设第i-1个值的有最大值dp[i]
          * 对于i，需要判断array[i]是否为正数，如果为正数则dp[i]=dp[i-1]+array[i]
          * 如果array[i]为负数，dp[i]=dp[i-1]
+         *
+         * 状态转移方程
+         * [6,-1,-2,7]->[6,6,6,10]
+         * [-1,-2,-3,6]->[-1,-1,-1,6]
+         * [6,-3,-5,9]->[6,6,6,9];
+         * [7,-2,1,3]->[7,7,7,9]
+         * 分析：dp[3]<>a[3]<>dp[2]+a[3],无法直接产生dp[i] 和 dp[i-1] 之间的联系
+         * 状态与当前数组累加值 sum 相关
+         * 对于a[i]，sum[i-1] 两个影响因素
+         * 状态转移方程需要综合考虑 sum[] 和 a[] 两个影响变量
+         * if(sum<0){
+         *     sum=a[i]
+         * }else{
+         *    sum+=a[i]
+         * }
+         * max=math.Max(max,sum);
+         *
+         * max=dp[i];
+         * 即
+         * if(sum[i-1]<0){
+         *     dp[i]=a[i];
+         * }else{
+         *     dp[i-1]=math.Max(sum[i-1]+a[i],dp[i]) //状态转移方程
+         * }
+         *
+         * so：do the loop
+         * int sum,int max
+         * sum=max=a[0]
+         * for(i=1,i<lenght,i++){
+         *
+         * }
          */
-        int res = array[0];
-        for (int i = 1; i < array.length; i++) {
-            array[i] += Math.max(array[i - 1], 0);
-            res = Math.max(res, array[i]);
+        int max, sum;
+        max = sum = array[0];
+        if (array.length > 1) {
+            for (int i = 1; i < array.length; i++) {
+                sum = sum > 0 ? sum += array[i] : array[i];
+                max = Math.max(max, sum);
+            }
         }
-        return res;
+        return max;
     }
 
     public static int lengthOfLongestSubstring(String s) {
@@ -60,7 +91,9 @@ public class TestDP {
          * 如果不存在，比较dp[i-1]和max+=1的最大值
          */
 
-        if (s == null || s.length() == 0) return 0;
+        if (s == null || s.length() == 0) {
+            return 0;
+        }
         int length = s.length();
         HashMap<Character, Integer> dict = new HashMap<Character, Integer>();
         int[] dp = new int[length];
@@ -128,37 +161,38 @@ public class TestDP {
     }
 
     public static int coinChange(int[] coins, int amount) {
-        int[] dp=new int[amount+1];
+        int[] dp = new int[amount + 1];
 
-        if(coins.length<=0)
+        if (coins.length <= 0) {
             return -1;
+        }
 
-        int clength=coins.length;
-        for(int i=0;i<=amount;i++){
-            dp[i]=amount+1;
-            for(int j=0;j<clength;j++){
-                int val=coins[j];
-                if(i-val>0){
-                    dp[i]=Math.min(dp[i],dp[i-val]+1);
+        int clength = coins.length;
+        for (int i = 0; i <= amount; i++) {
+            dp[i] = amount + 1;
+            for (int j = 0; j < clength; j++) {
+                int val = coins[j];
+                if (i - val > 0) {
+                    dp[i] = Math.min(dp[i], dp[i - val] + 1);
                 }
             }
         }
-        return dp[amount]==amount+1?-1:dp[amount];
+        return dp[amount] == amount + 1 ? -1 : dp[amount];
     }
 
     public static void main(String[] args) {
 //        int[] array = new int[]{1, -2, 3, 10, -4, 7, 2, -5};
-//        int max = maxSubSumByDB(array);
-//        System.out.println("Max Value is:" + max);
+        int[] array = new int[]{5,-1,-2,-3,2};
+        int max = maxSubSumByDB(array);
+        System.out.println("Max Value is:" + max);
 //        String s = "aab";
 //        int maxSubStrlen = lengthOfLongestSubstring(s);
 //        System.out.println("最长子序列：" + maxSubStrlen);
 
 
-
-        int[] coins=new int[]{1,2,5};
-        int minVal=coinChange(coins,11);
-        System.out.println("最少硬币数量：" + minVal);
+//        int[] coins = new int[] {1, 2, 5};
+//        int minVal = coinChange(coins, 11);
+//        System.out.println("最少硬币数量：" + minVal);
 
 
     }
