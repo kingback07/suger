@@ -10,7 +10,7 @@ import java.nio.channels.SocketChannel;
 import java.util.Set;
 
 /**
- * @author wangyang09 wangyang09@kuaishou.com>
+ * @author wangyang09
  * Created on 2021-04-06
  */
 public class NioSocketTest {

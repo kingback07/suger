@@ -13,6 +13,7 @@ import com.suger.is.permissionengine.v1.service.EnableRoleFetchService;
  * @author wangyang09 wangyang09@suger.com>
  * Created on 2020-11-24
  */
+
 @Data
 public class EnableRoleListEngine {
 

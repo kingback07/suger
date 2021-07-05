@@ -1,7 +1,7 @@
 package org.kingback.suger.demo;
 
 /**
- * @author wangyang09 wangyang09@kuaishou.com>
+ * @author wangyang09
  * Created on 2021-04-07
  */
 public class CheckRegrex {

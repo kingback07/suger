@@ -5,7 +5,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * @author wangyang09 wangyang09@kuaishou.com>
+ * @author wangyang09
  * Created on 2021-03-30
  */
 public class MultiThreadTest {

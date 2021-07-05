@@ -22,6 +22,7 @@ public class AnnotaionApplicationContext implements BeanFactory {
     public AnnotaionApplicationContext(Class<MainTest> mainTestClass) {
         // 从启动类中读取ComponentScan注解，获取需要加载的类
         String packPath = "";
+
         if (mainTestClass.isAnnotationPresent(ComponetScan.class)) {
             ComponetScan componetScan = mainTestClass.getAnnotation(ComponetScan.class);
             packPath = componetScan.value();
