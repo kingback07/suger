@@ -1,6 +1,7 @@
 package org.kingback.suger.demo.demo4InnerCall;
 
 import java.text.MessageFormat;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class InnerCallApplication {
 
@@ -13,6 +14,8 @@ public class InnerCallApplication {
 //    private static OkHttpClient client = clientHandler.sinletonClient;
 
     public static void main(String args[]) throws InterruptedException {
+
+//        ReentrantLock
 //        int productId = 451;
 //        String appSecret = "FdN4SP26sUkBVqGk";
 //        int expId = 1173;

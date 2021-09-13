@@ -7,6 +7,7 @@ package org.kingback.suger.learning.datastructures.array;
  */
 public class ArrayOrderSimple {
 
+
     /**
      * 冒泡排序法
      *
